@@ -7,11 +7,12 @@ class Categoria(models.Model):
         return self.categoria
 
 class Movimento(models.Model):
-    data = models.DateTimeField()
+    data = models.DateField()
     descricao = models.CharField(max_length=50)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     valor = models.FloatField()
 
     def __str__(self):
-        return self.data
+        return self.descricao
+        __
 
