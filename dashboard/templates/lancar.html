@@ -45,8 +45,8 @@
       </div>
       <div class="modal-body">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Dashboard</li>
-          <li class="list-group-item">Lançamento</li>
+          <li class="list-group-item"><a href="{% url 'home' %}">Dashboard</a></li>
+          <li class="list-group-item"><a href="{% url 'lancar' %}">Lançamento</a></li>
         </ul>
 
       </div>
@@ -56,5 +56,32 @@
     </div>
   </div>
 </div>
+
+<section class="mb-3">
+    <form action="{% url 'lancar' %}" method='POST'>{% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Data:</label>
+            <input type="text" class="form-control" placeholder="Data..." name="data">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descrição:</label>
+            <input type="text" class="form-control" placeholder="Descrição..." name="descricao">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Categoria:</label>
+            <input type="text" class="form-control" placeholder="Categoria..." name="categoria">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Valor:</label>
+            <input type="text" class="form-control" placeholder="Valor..." name="valor">
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary" value="cadastrar">
+        </div>
+
+    </form>
+</section>
+
+
   </body>
 </html>
