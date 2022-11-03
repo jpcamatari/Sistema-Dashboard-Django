@@ -14,8 +14,9 @@ def lancar(request):
         data = request.POST.get("data")
         descricao = request.POST.get("descrição")
         categoria = request.POST.get("categoria")
-        categoria = request.POST.get("valor")
+        valor = request.POST.get("valor")
 
+        Movimento(data, descricao, categoria, valor)
 
 def total_gasto(request):
     total = Movimento.objects.all().aaggregate(Sum('valor'))['valor__sum']
