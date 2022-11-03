@@ -17,6 +17,9 @@
       .list-group-item:hover {
         background-color: rgba(59, 57, 57, 0.164)!important;
       }
+      .fundo {
+        background-color: #becbec;
+      }
 
 
     </style>
@@ -25,7 +28,7 @@
   </head>
 
 
-  <body>
+  <body class="fundo">
     <nav class="navbar bg-light shadow">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">DASHBOARD</span>
@@ -57,11 +60,11 @@
   </div>
 </div>
 
-<section class="mb-3">
-    <form action="{% url 'lancar' %}" method='POST'>{% csrf_token %}
+<section class="mb-3 mt-5 mx-auto w-25 border border-shadow rounded bg-light text-dark">
+    <form action="{% url 'lancar' %}" class="p-3" method='POST'>{% csrf_token %}
         <div class="mb-3">
             <label class="form-label">Data:</label>
-            <input type="text" class="form-control" placeholder="Data..." name="data">
+            <input type="date" class="form-control" placeholder="Data..." name="data">
         </div>
         <div class="mb-3">
             <label class="form-label">Descrição:</label>
