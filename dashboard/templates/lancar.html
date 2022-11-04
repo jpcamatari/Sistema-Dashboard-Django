@@ -40,25 +40,24 @@
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">MENU</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">MENU</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="{% url 'home' %}">Dashboard</a></li>
-          <li class="list-group-item"><a href="{% url 'lancar' %}">Lançamento</a></li>
+          <li><a class="list-group-item" href="{% url 'home' %}">Dashboard</a></li>
+          <li><a class="list-group-item" href="{% url 'lancar' %}">Lançamento</a></li>
         </ul>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <section class="mb-3 mt-5 mx-auto w-25 border border-shadow rounded bg-light text-dark">
     <form action="{% url 'lancar' %}" class="p-3" method='POST'>{% csrf_token %}
@@ -79,7 +78,7 @@
             <input type="text" class="form-control" placeholder="Valor..." name="valor">
         </div>
         <div>
-            <input type="submit" class="btn btn-primary" value="cadastrar">
+            <input type="submit" class="btn btn-primary d-grid gap-2 d-md-flex justify-content-md-end" value="cadastrar">
         </div>
 
     </form>
