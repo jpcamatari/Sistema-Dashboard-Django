@@ -60,7 +60,7 @@
   </div>
 
 <section class="mb-3 mt-5 mx-auto w-25 border border-shadow rounded bg-light text-dark">
-    <form action="{% url 'lancar' %}" class="p-3" method='POST'>{% csrf_token %}
+    <form action="{% url 'processa_formulario' %}" class="p-3" method='POST'>{% csrf_token %}
         <div class="mb-3">
             <label class="form-label">Data:</label>
             <input type="date" class="form-control" placeholder="Data..." name="data">
