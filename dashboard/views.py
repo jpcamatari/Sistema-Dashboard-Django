@@ -1,25 +1,15 @@
 from django.shortcuts import render
 from .models import Movimento
-from django.http import JsonResponse
-from django.db.models import Sum
+from django.http import JsonResponse, HttpResponse
+from .forms import formularioLancar
 
 def home(request):
     return render(request, 'home.html')
 
 
 def lancar(request):
-    if request.method == "GET":
-        return render(request, 'lancar.html')
-    else:
-        data = request.POST.get("data")
-        descricao = request.POST.get("descrição")
-        categoria = request.POST.get("categoria")
-        valor = request.POST.get("valor")
+   form = formularioLancar()
+   return render(request, 'lancar.html', {'form': form})
 
-        entrada = Movimento(data, descricao, categoria, valor)
-        entrada.add()
-        entrada.commit()
-
-def total_gasto(request):
-    total = Movimento.objects.all().aaggregate(Sum('valor'))['valor__sum']
-    return JsonResponse({'Valor': total})
+def processa_formulario(request):
+    return HttpResponse('teste')
