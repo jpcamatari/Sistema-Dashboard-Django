@@ -59,24 +59,12 @@
     </div>
   </div>
 
-<section class="mb-3 mt-5 mx-auto w-25 border border-shadow rounded bg-light text-dark">
-    <form action="{% url 'processa_formulario' %}" class="p-3" method='POST'>{% csrf_token %}
-        <div class="mb-3">
-            <label class="form-label">Data:</label>
-            <input type="date" class="form-control" placeholder="Data..." name="data">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Descrição:</label>
-            <input type="text" class="form-control" placeholder="Descrição..." name="descricao">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Categoria:</label>
-            <input type="text" class="form-control" placeholder="Categoria..." name="categoria">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Valor:</label>
-            <input type="text" class="form-control" placeholder="Valor..." name="valor">
-        </div>
+<section class="">
+    <form action="{% url 'processa_formulario' %}" class="p-3 mb-3 mt-5 mx-auto w-25 border border-shadow rounded bg-light text-dark" method='POST'>{% csrf_token %}
+        <table class="mb-3 mt-2 p-3 gap-3">
+            {{form.as_table}}
+        </table>
+
         <div>
             <input type="submit" class="btn btn-primary d-grid gap-2 d-md-flex justify-content-md-end" value="cadastrar">
         </div>
