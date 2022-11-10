@@ -9,10 +9,9 @@ class Categoria(models.Model):
 class Movimento(models.Model):
     data = models.DateField()
     descricao = models.CharField(max_length=50)
-    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    categoria = models.CharField(max_length=50)
     valor = models.FloatField()
 
     def __str__(self):
         return self.descricao
-        __
 
