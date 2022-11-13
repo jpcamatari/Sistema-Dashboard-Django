@@ -17,3 +17,4 @@ class formularioLancar(forms.ModelForm):
         self.fields['categoria'].error_messages['required'] = ""
         self.fields['valor'].widget.attrs['class'] = 'form-control mb-3'
         self.fields['valor'].error_messages['required'] = ""
+        
