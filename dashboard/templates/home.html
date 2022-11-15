@@ -17,6 +17,9 @@
       .list-group-item:hover {
         background-color: rgba(59, 57, 57, 0.164)!important;
       }
+      .fundo {
+        background-color: #becbec;
+      }
 
 
     </style>
@@ -25,7 +28,7 @@
   </head>
 
 
-  <body>
+  <body class="fundo">
     <nav class="navbar bg-light shadow">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">DASHBOARD</span>
@@ -56,10 +59,27 @@
   </div>
 </div>
 
-{% for descricao in lista %}
 
-{{ descricao }} </br>
+  <div class="p-3 mb-3 mt-5 mx-auto w-75 border border-shadow rounded bg-light text-dark">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Descrição</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for descricao in lista %}
+        <tr>
+          <th scope="row">{{ descricao }}</th>
+          <td>{{ descricao.categoria }}</td>
+          <td>{{ descricao.valor }}</td>
+        </tr>
 
-{% endfor %}
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
   </body>
 </html>
