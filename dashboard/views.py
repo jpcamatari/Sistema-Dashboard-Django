@@ -4,8 +4,10 @@ from .models import Movimento
 
 def home(request):
     lista = Movimento.objects.all()
+    total = Movimento.objects.annotate(somatoria=Sum('valor'))
     context = {
         'lista' : lista,
+        'total' : total
     }
     return render(request, 'home.html', context)
 
