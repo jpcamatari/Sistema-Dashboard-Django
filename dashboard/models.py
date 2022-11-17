@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class Categoria(models.Model):
     categoria = models.CharField(max_length=50)
@@ -7,7 +8,7 @@ class Categoria(models.Model):
         return self.categoria
 
 class Movimento(models.Model):
-    data = models.DateField()
+    data = models.DateField(default=datetime.datetime.now())
     descricao = models.CharField(max_length=50)
     categoria = models.CharField(max_length=50)
     valor = models.FloatField()
