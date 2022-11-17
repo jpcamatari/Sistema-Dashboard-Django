@@ -47,3 +47,23 @@ def relatorio_gasto(request):
     data_json = {'data' : data[::-1], 'labels' : labels[::-1]}
 
     return JsonResponse(data_json)
+
+def relatorio_categoria(request):
+    categorias = Movimento.objects.all()
+    label = []
+    data = []
+    for categoria in categorias:
+        soma_categoria = Movimento.objects.filter(nome_categoria=categoria).aggregate(Sum('valor'))
+        
+
+        if not soma_categoria['total__sum']:
+            soma_categoria['total__sum'] = 0
+        label.append(categoria.nome)
+        data.append(soma_categoria['total__sum'])
+
+    x = list(zip(label, data))
+
+    x.sort(key=lambda x: x[1], reverse=True)
+    x = list(zip(*x))
+
+    return JsonResponse({'labels': x[0][:3]})
