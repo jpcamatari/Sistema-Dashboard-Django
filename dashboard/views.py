@@ -53,13 +53,13 @@ def relatorio_categoria(request):
     label = []
     data = []
     for categoria in categorias:
-        soma_categoria = Movimento.objects.filter(nome_categoria=categoria).aggregate(Sum('valor'))
+        soma_categoria = Movimento.objects.filter(categoria=categoria).aggregate(Sum('valor'))
         
 
-        if not soma_categoria['total__sum']:
-            soma_categoria['total__sum'] = 0
-        label.append(categoria.nome)
-        data.append(soma_categoria['total__sum'])
+        if not soma_categoria['valor__sum']:
+            soma_categoria['valor__sum'] = 0
+        label.append(categoria)
+        data.append(soma_categoria['valor__sum'])
 
     x = list(zip(label, data))
 
