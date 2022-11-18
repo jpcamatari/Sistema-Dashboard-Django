@@ -55,15 +55,14 @@ def relatorio_categoria(request):
     for categoria in categorias:
         soma_categoria = Movimento.objects.filter(categoria=categoria).aggregate(Sum('valor'))
         
-
         if not soma_categoria['valor__sum']:
             soma_categoria['valor__sum'] = 0
-        label.append(categoria)
+        label.append(categoria.categoria)
         data.append(soma_categoria['valor__sum'])
 
     x = list(zip(label, data))
-
     x.sort(key=lambda x: x[1], reverse=True)
     x = list(zip(*x))
-
-    return JsonResponse({'labels': x[0][:3]})
+    result = {'labels': x[0][:1], 'data': x[1][:1]}
+    print(result)
+    return JsonResponse(result)
