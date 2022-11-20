@@ -64,5 +64,4 @@ def relatorio_categoria(request):
     x.sort(key=lambda x: x[1], reverse=True)
     x = list(zip(*x))
     result = {'labels': x[0][:1], 'data': x[1][:1]}
-    print(result)
     return JsonResponse(result)
