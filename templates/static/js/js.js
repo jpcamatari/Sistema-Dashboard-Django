@@ -1,4 +1,4 @@
-function renderiza_total_vendido(url){  
+function renderiza_total_gasto(url){  
     fetch(url, {
         method: 'get',
     }).then(function(result){
