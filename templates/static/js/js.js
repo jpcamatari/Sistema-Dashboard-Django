@@ -1,10 +1,10 @@
-
-function renderiza_total_gasto(url){
+function renderiza_total_vendido(url){  
     fetch(url, {
         method: 'get',
-    }).then(funcition(result){
+    }).then(function(result){
         return result.json()
-    }).then(funcition(data){
+    }).then(function(data){
         document.getElementById('total_gasto').innerHTML = data.total
     })
+
 }
