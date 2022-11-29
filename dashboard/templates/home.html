@@ -73,7 +73,9 @@
   </div>
 
   <div class="row d-flex p-3 mb-3 mt-5 mx-auto w-75 border border-shadow rounded bg-light text-dark">
-    <h1>Local onde ficara grafico mensal</h1>
+    <br>
+    <h3>Gasto Mensal:</h3>
+    <canvas id="despesas_mensal"></canvas>
   </div>
 
   <div class="p-3 mb-3 mt-5 mx-auto w-75 border border-shadow rounded bg-light text-dark">
@@ -98,11 +100,14 @@
       </tbody>
     </table>
   </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src=" {% static 'js/js.js' %}"></script>
     <script>
       window.onload = function(event){
     
         renderiza_total_gasto("{% url 'total_gasto' %}")
+        renderiza_despesas_mensal("{% url 'relatorio_gasto' %}")
       }
     </script>
   </body>

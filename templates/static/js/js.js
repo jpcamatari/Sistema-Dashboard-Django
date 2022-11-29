@@ -24,7 +24,7 @@ function gera_cor(qtd=1){
 }
 
 
-function renderiza_faturamento_mensal(url){
+function renderiza_despesas_mensal(url){
 
     fetch(url, {
         method: 'get',
@@ -32,7 +32,7 @@ function renderiza_faturamento_mensal(url){
         return result.json()
     }).then(function(data){
 
-        const ctx = document.getElementById('faturamento_mensal').getContext('2d');
+        const ctx = document.getElementById('despesas_mensal').getContext('2d');
         var cores_faturamento_mensal = gera_cor(qtd=12)
         const myChart = new Chart(ctx, {
             type: 'bar',
@@ -46,13 +46,6 @@ function renderiza_faturamento_mensal(url){
                     borderWidth: 1
                 }]
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
         });
     })
 }

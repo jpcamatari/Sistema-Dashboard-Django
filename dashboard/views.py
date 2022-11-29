@@ -31,7 +31,7 @@ def relatorio_gasto(request):
     data = []
     labels = []
     cont = 0
-    mes = datetime.now().month + 1
+    mes = datetime.now().month + 2
     ano = datetime.now().year
     for i in range(12):
         mes -= 1
