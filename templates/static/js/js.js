@@ -6,7 +6,6 @@ function renderiza_total_gasto(url){
     }).then(function(data){
         document.getElementById('total_gasto').innerHTML = data.total
     })
-
 }
 
 function gera_cor(qtd=1){
@@ -19,7 +18,6 @@ function gera_cor(qtd=1){
         bg_color.push(`rgba(${r}, ${g}, ${b}, ${0.2})`)
         border_color.push(`rgba(${r}, ${g}, ${b}, ${1})`)
     }
-    
     return [bg_color, border_color];
 }
 
