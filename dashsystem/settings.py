@@ -129,7 +129,6 @@ STATIC_ROOT = os.path.join('static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # HTTPS/SSL
-
 if not DEBUG:
 	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 	SECURE_SSL_REDIRECT = True
