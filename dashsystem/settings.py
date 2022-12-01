@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = ['http:ec2-54-159-251-96.compute-1.amazonaws.com', '54.159.251.96', 'ec2-54-159-251-96.compute-1.amazonaws.com']
+ALLOWED_HOSTS = ['jpcamatari.tech','http:jpcamatari.tech', '54.159.251.96', 'ec2-54-159-251-96.compute-1.amazonaws.com']
 
 
 # Application definition
