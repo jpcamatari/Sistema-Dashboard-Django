@@ -31,7 +31,7 @@ def relatorio_gasto(request):
     data = []
     labels = []
     cont = 0
-    mes = datetime.now().month + 2
+    mes = datetime.now().month + 1
     ano = datetime.now().year
     for i in range(12):
         mes -= 1
@@ -47,21 +47,3 @@ def relatorio_gasto(request):
     data_json = {'data' : data[::-1], 'labels' : labels[::-1]}
 
     return JsonResponse(data_json)
-
-def relatorio_categoria(request):
-    categorias = Movimento.objects.all()
-    label = []
-    data = []
-    for categoria in categorias:
-        soma_categoria = Movimento.objects.filter(categoria=categoria).aggregate(Sum('valor'))
-        
-        if not soma_categoria['valor__sum']:
-            soma_categoria['valor__sum'] = 0
-        label.append(categoria.categoria)
-        data.append(soma_categoria['valor__sum'])
-
-    x = list(zip(label, data))
-    x.sort(key=lambda x: x[1], reverse=True)
-    x = list(zip(*x))
-    result = {'labels': x[0][:1], 'data': x[1][:1]}
-    return JsonResponse(result)

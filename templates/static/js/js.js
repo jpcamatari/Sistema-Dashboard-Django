@@ -35,9 +35,9 @@ function renderiza_despesas_mensal(url){
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                labels: data.labels,
                 datasets: [{
-                    label: data.labels,
+                    label: 'Gasto Mensal',
                     data: data.data,
                     backgroundColor: cores_faturamento_mensal[0],
                     borderColor: cores_faturamento_mensal[1],
