@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import formularioLancar
 from .models import Movimento
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.db.models import Sum
 from datetime import datetime
 
@@ -46,4 +46,4 @@ def relatorio_gasto(request):
 
     data_json = {'data' : data[::-1], 'labels' : labels[::-1]}
 
-    return HttpResponse(data_json)
+    return JsonResponse(data_json)
