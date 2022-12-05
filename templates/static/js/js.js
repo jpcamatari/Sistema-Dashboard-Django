@@ -11,6 +11,7 @@ function renderiza_total_gasto(url){
 function gera_cor(qtd=1){
     var bg_color = []
     var border_color = []
+
     for(let i = 0; i < qtd; i++){
         let r = Math.random() * 255;
         let g = Math.random() * 255;
@@ -32,6 +33,7 @@ function renderiza_despesas_mensal(url){
 
         const ctx = document.getElementById('despesas_mensal').getContext('2d');
         var cores_faturamento_mensal = gera_cor(qtd=12)
+        
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {

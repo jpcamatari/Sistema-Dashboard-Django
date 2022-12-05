@@ -12,7 +12,6 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
-
 def lancar(request):
     form = formularioLancar(request.POST)
     if form.is_valid():
