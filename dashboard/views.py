@@ -44,4 +44,4 @@ def relatorio_gasto(request):
         cont += 1
 
     data_json = {'data' : data[::-1], 'labels' : labels[::-1]}
-    return HttpResponse(data_json)
+    return JsonResponse(data_json)
