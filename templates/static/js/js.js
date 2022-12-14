@@ -1,3 +1,4 @@
+//Função que pega o httpresponse enviado da função e python e renderiza os dados de gasto total
 function renderiza_total_gasto(url){  
     fetch(url, {
         method: 'get',
@@ -8,6 +9,7 @@ function renderiza_total_gasto(url){
     })
 }
 
+//Função que gera cor aleatoria pra utlizar no grafico
 function gera_cor(qtd=1){
     var bg_color = []
     var border_color = []
@@ -22,7 +24,7 @@ function gera_cor(qtd=1){
     return [bg_color, border_color];
 }
 
-
+//Função que renderiza o grafico utilizando a biblioteca chart.js e pegando os dados da função em python que enviou um httpresponse
 function renderiza_despesas_mensal(url){
 
     fetch(url, {

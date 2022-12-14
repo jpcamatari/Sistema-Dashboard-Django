@@ -5,6 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.db.models import Sum
 from datetime import datetime
 
+#Tras todos os elementos do banco de dados utilizando ORM do django e renderiza a pagina
 def home(request):
     lista = Movimento.objects.all()
     context = {
@@ -12,6 +13,7 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
+#Renderiza a pagina e tras formulario em django para inserção no banco de dados
 def lancar(request):
     form = formularioLancar(request.POST)
     if form.is_valid():
@@ -19,10 +21,12 @@ def lancar(request):
         return render(request, 'lancar.html', {'form': form})
     return render(request, 'lancar.html', {'form': form})
  
+#Função do ORM que busca todas as linhas do banco e soma a coluna valor
 def total_gasto(request):
     total = Movimento.objects.all().aggregate(Sum('valor'))['valor__sum']
     return JsonResponse({'total' : total})
 
+#Função que captura o mes atual, gera os gastos dos ultimos 12 meses e envia um resposta http
 def relatorio_gasto(request):
     x = Movimento.objects.all()
 
