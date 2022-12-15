@@ -2,6 +2,7 @@ from dataclasses import fields
 from django import forms
 from .models import Movimento
 
+#Criação do formulario e captura para db
 class formularioLancar(forms.ModelForm):
     class Meta:
         model = Movimento
